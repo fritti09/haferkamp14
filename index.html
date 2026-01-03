@@ -5,83 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferienhaus Haferkamp 14 | Isselburg</title>
     <style>
-        :root { --primary: #2c3e50; --accent: #27ae60; --light: #f4f4f4; --white: #ffffff; }
+        :root {
+            --primary: #2c3e50; /* Dunkelblau für Business/Monteure */
+            --accent: #27ae60;  /* Grün für Natur/Radfahrer */
+            --light: #f4f4f4;
+            --white: #ffffff;
+        }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: #333; }
+        
+        /* Header & Nav */
         header { background: var(--primary); color: var(--white); padding: 3rem 1rem; text-align: center; }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { font-size: 1.2rem; margin-top: 10px; opacity: 0.9; }
+        
         nav { background: #34495e; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: var(--white); text-decoration: none; margin: 0 15px; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+        nav a:hover { color: var(--accent); }
+
+        /* Sections */
         section { padding: 3rem 1rem; max-width: 1100px; margin: auto; }
-        h2 { text-align: center; color: var(--primary); margin-bottom: 2rem; }
+        h2 { text-align: center; color: var(--primary); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Cards & Grid */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--white); border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        
+        .card { background: var(--white); border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .card-content { padding: 20px; }
         .card-header { background: var(--light); padding: 15px 20px; font-weight: bold; border-bottom: 1px solid #ddd; }
+
+        /* Target Group Details */
         .target-group { display: flex; align-items: center; margin-bottom: 2rem; background: var(--light); border-radius: 8px; padding: 20px; }
         .target-icon { font-size: 3rem; margin-right: 20px; color: var(--accent); }
+        
+        /* Pricing Box */
         .price-tag { font-size: 1.5rem; color: var(--accent); font-weight: bold; margin: 10px 0; }
+        .deal-badge { background: #e74c3c; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; vertical-align: middle; }
+
+        /* Booking Form */
         .booking-wrapper { background: var(--primary); color: white; padding: 30px; border-radius: 8px; }
         .form-group { margin-bottom: 15px; }
-        input, select, textarea { width: 100%; padding: 10px; border-radius: 4px; border: none; box-sizing: border-box; }
-        button.btn { background: var(--accent); color: white; border: none; padding: 12px 25px; cursor: pointer; width: 100%; font-weight: bold; font-size: 1.1rem; }
+        label { display: block; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 10px; border: none; border-radius: 4px; box-sizing: border-box; }
+        button.btn { background: var(--accent); color: white; border: none; padding: 12px 25px; font-size: 1.1rem; cursor: pointer; width: 100%; border-radius: 4px; font-weight: bold; }
+        button.btn:hover { background: #219150; }
+
+        /* Footer */
         footer { background: #222; color: #ccc; text-align: center; padding: 2rem; margin-top: 2rem; }
-        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } .target-group { flex-direction: column; text-align: center; } .target-icon { margin-bottom: 15px; } }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .target-group { flex-direction: column; text-align: center; }
+            .target-icon { margin: 0 0 15px 0; }
+            nav a { display: inline-block; margin: 5px 10px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Haferkamp 14</h1>
-    <p>Zwei moderne Ferienwohnungen in Isselburg | Ideal für Radfahrer & Monteure</p>
+    <p>Zwei moderne Ferienwohnungen in Isselburg | Flexibel mieten</p>
 </header>
 
 <nav>
     <a href="#wohnungen">Wohnungen & Preise</a>
-    <a href="#zielgruppen">Vorteile</a>
-    <a href="#region">Lage & Karte</a>
+    <a href="#zielgruppen">Für Monteure & Radler</a>
+    <a href="#region">Region & Lage</a>
     <a href="#kontakt">Buchen</a>
 </nav>
 
+<section>
+    <p style="text-align: center; font-size: 1.1rem; max-width: 800px; margin: auto;">
+        Willkommen in Isselburg! Ob beruflich als <strong>Monteur</strong> oder zur Erholung auf dem <strong>Fahrrad</strong> – 
+        im Haferkamp 14 finden Sie die perfekte Basis. Mieten Sie eine einzelne Wohnung oder das komplette Haus für Ihr Team oder die ganze Familie.
+    </p>
+</section>
+
 <section id="wohnungen">
-    <h2>Unsere Angebote</h2>
+    <h2>Unser Angebot</h2>
     <div class="grid-3">
         <div class="card">
-            <div class="card-header">Wohnung 1 (EG)</div>
+            <div class="card-header">Wohnung 1 "Issel" (EG)</div>
             <div class="card-content">
-                <p>Ideal für 1-3 Personen. Voll ausgestattet.</p>
-                <div class="price-tag">60€ / Nacht</div>
+                <p>Gemütliche Wohnung mit direktem Zugang. Ideal für 1-3 Personen.</p>
+                <ul style="padding-left: 20px;">
+                    <li>Voll ausgestattete Küche</li>
+                    <li>Bad mit Dusche</li>
+                    <li>WLAN & Smart-TV</li>
+                </ul>
+                <div class="price-tag">60€ <span style="font-size:0.9rem; color:#666; font-weight:normal;">/ Nacht</span></div>
             </div>
         </div>
+
         <div class="card">
-            <div class="card-header">Wohnung 2 (OG)</div>
+            <div class="card-header">Wohnung 2 "Anholt" (OG)</div>
             <div class="card-content">
-                <p>Helle Räume, modern eingerichtet.</p>
-                <div class="price-tag">60€ / Nacht</div>
+                <p>Helle Wohnung im Obergeschoss. Ruhig gelegen.</p>
+                <ul style="padding-left: 20px;">
+                    <li>Getrennte Schlafbereiche möglich</li>
+                    <li>Moderne Ausstattung</li>
+                    <li>Arbeitsbereich vorhanden</li>
+                </ul>
+                <div class="price-tag">60€ <span style="font-size:0.9rem; color:#666; font-weight:normal;">/ Nacht</span></div>
             </div>
         </div>
+
         <div class="card" style="border: 2px solid var(--accent);">
-            <div class="card-header" style="background: var(--accent); color: white;">Ganzes Haus</div>
+            <div class="card-header" style="background: var(--accent); color: white;">Komplettes Haus</div>
             <div class="card-content">
-                <p>Platz für bis zu 6 Personen. 2 Küchen/Bäder.</p>
-                <div class="price-tag">110€ / Nacht</div>
+                <p>Nutzen Sie beide Wohnungen zusammen. Privatsphäre für große Gruppen.</p>
+                <ul style="padding-left: 20px;">
+                    <li>Platz für bis zu 6 Personen</li>
+                    <li>2 Küchen & 2 Bäder</li>
+                    <li>Gartenmitbenutzung</li>
+                </ul>
+                <div class="price-tag">110€ <span style="font-size:0.9rem; color:#666; font-weight:normal;">/ Nacht</span> <span class="deal-badge">Sparpreis</span></div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="zielgruppen">
+<section id="zielgruppen" style="background: #fff;">
+    <h2>Perfekt ausgestattet für...</h2>
+    
     <div class="target-group">
         <div class="target-icon">🛠️</div>
         <div>
-            <h3>Für Monteure</h3>
-            <p>Getrennte Betten, WLAN, Waschmaschine und einfache Parkmöglichkeit für Transporter direkt am Haus.</p>
+            <h3>Monteure & Berufsreisende</h3>
+            <p>Wir wissen, was nach einem harten Arbeitstag wichtig ist:</p>
+            <ul>
+                <li><strong>Einzelbetten:</strong> Erholsamer Schlaf ohne Doppelbetten-Zwang.</li>
+                <li><strong>Parkmöglichkeiten:</strong> Ausreichend Platz für Transporter direkt am Haus (Haferkamp ist gut befahrbar).</li>
+                <li><strong>Unkomplizierter Check-in:</strong> Flexibel nach Absprache, passend zu Ihren Schichtzeiten.</li>
+                <li><strong>Stabiles WLAN:</strong> Für den Kontakt nach Hause oder Netflix am Abend.</li>
+                <li><strong>Waschmaschine:</strong> In beiden Wohnungen vorhanden/nutzbar.</li>
+            </ul>
         </div>
     </div>
+
     <div class="target-group">
         <div class="target-icon">🚲</div>
         <div>
-            <h3>Für Radfahrer</h3>
-            <p>Sichere Garage für E-Bikes, Ladestationen und direkter Einstieg in die Radrouten des Münsterlands.</p>
+            <h3>Radfahrer & Urlauber</h3>
+            <p>Isselburg ist das Tor zum Münsterland und Niederrhein:</p>
+            <ul>
+                <li><strong>Sichere Abstellplätze:</strong> Garage/Unterstand für Ihre E-Bikes und Fahrräder (abschließbar).</li>
+                <li><strong>Lademöglichkeiten:</strong> Steckdosen für E-Bike-Akkus vorhanden.</li>
+                <li><strong>Kartenmaterial:</strong> Infos zur "100 Schlösser Route" und lokalen Wegen liegen aus.</li>
+                <li><strong>Trockenraum:</strong> Falls das Wetter mal nicht mitspielt, können Sie Kleidung problemlos trocknen.</li>
+            </ul>
         </div>
     </div>
 </section>
@@ -90,46 +165,101 @@
     <h2>Lage & Umgebung</h2>
     <div class="grid-2">
         <div>
-            <h3>In der Nähe</h3>
-            <ul>
-                <li>🏰 Wasserburg Anholt (5 Min.)</li>
-                <li>🦌 Biotopwildpark Anholter Schweiz</li>
-                <li>🇳🇱 Grenznähe Niederlande (Dinxperlo)</li>
-                <li>🏪 Supermärkte & Bäcker in Isselburg</li>
+            <h3>Highlights in der Nähe</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px;">🏰 <strong>Wasserburg Anholt:</strong> Nur 5 Autominuten. Eines der eindrucksvollsten Schlösser im Münsterland mit Museum und Bibliothek.</li>
+                <li style="margin-bottom: 10px;">🦌 <strong>Anholter Schweiz:</strong> Der Biotopwildpark ist direkt am Schloss gelegen – perfekt für einen Spaziergang.</li>
+                <li style="margin-bottom: 10px;">🇳🇱 <strong>Niederlande / Dinxperlo:</strong> In wenigen Minuten über die Grenze. Besuchen Sie den berühmten Freitagsmarkt oder das Grenzblick-Museum.</li>
+                <li style="margin-bottom: 10px;">🏭 <strong>Industriepark Bocholt:</strong> Für Berufsreisende schnell über die B67 erreichbar.</li>
             </ul>
         </div>
-        <div style="height: 300px; border-radius: 8px; overflow: hidden;">
-            <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2466.568396590333!2d6.452623315781368!3d51.8385459796914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b86df9d4e5d5e5%3A0x88989b5c2a6f8b0!2sHaferkamp%2014%2C%2046419%20Isselburg!5e0!3m2!1sde!2sde!4v1715850000000!5m2!1sde!2sde" allowfullscreen></iframe>
+        <div style="background: #ddd; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+            <p style="color: #666;">[Hier Karte einfügen]<br>Google Maps Embed Code</p>
         </div>
     </div>
 </section>
 
 <section id="kontakt">
-    <h2>Buchungsanfrage</h2>
+    <h2>Verfügbarkeit anfragen</h2>
     <div class="booking-wrapper">
-        <form onsubmit="sendMail(event)">
-            <label>Option wählen:</label>
-            <select id="option"><option>Wohnung 1</option><option>Wohnung 2</option><option>Ganzes Haus</option></select>
-            <div class="grid-2" style="margin-top:15px;">
-                <div class="form-group"><label>Anreise:</label><input type="date" id="checkin" required></div>
-                <div class="form-group"><label>Abreise:</label><input type="date" id="checkout" required></div>
+        <form id="bookingForm" onsubmit="sendMail(event)">
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Gewünschte Option:</label>
+                    <select id="option" name="option">
+                        <option value="Wohnung 1 (60€)">Wohnung 1 (60€)</option>
+                        <option value="Wohnung 2 (60€)">Wohnung 2 (60€)</option>
+                        <option value="Ganzes Haus (110€)">Ganzes Haus (110€)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Personenanzahl:</label>
+                    <input type="number" id="guests" name="guests" min="1" max="8" value="1">
+                </div>
             </div>
-            <div class="form-group"><label>Ihr Name:</label><input type="text" id="name" required></div>
-            <div class="form-group"><label>Nachricht:</label><textarea id="message" rows="3"></textarea></div>
-            <button type="submit" class="btn">Anfrage per E-Mail senden</button>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Anreise:</label>
+                    <input type="date" id="checkin" name="checkin" required>
+                </div>
+                <div class="form-group">
+                    <label>Abreise:</label>
+                    <input type="date" id="checkout" name="checkout" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Ihr Name / Firma:</label>
+                <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+            </div>
+
+            <div class="form-group">
+                <label>E-Mail Adresse:</label>
+                <input type="email" id="email" name="email" placeholder="max@beispiel.de" required>
+            </div>
+
+            <div class="form-group">
+                <label>Nachricht / Sonderwünsche (z.B. Getrennte Betten):</label>
+                <textarea id="message" name="message" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn">Unverbindliche Anfrage senden</button>
         </form>
     </div>
 </section>
 
 <footer>
-    <p>Haferkamp 14, 46419 Isselburg</p>
+    <p>&copy; 2024 Ferienwohnungen Haferkamp 14, 46419 Isselburg</p>
+    <p>Telefon: +49 123 456789 | E-Mail: anfrage@haferkamp14.de</p>
+    <p><a href="#" style="color:#999;">Impressum</a> | <a href="#" style="color:#999;">Datenschutz</a></p>
 </footer>
 
 <script>
+    // Einfache Funktion, die das E-Mail-Programm öffnet
     function sendMail(e) {
         e.preventDefault();
-        const body = `Anfrage für: ${document.getElementById('option').value}\nZeitraum: ${document.getElementById('checkin').value} bis ${document.getElementById('checkout').value}\nName: ${document.getElementById('name').value}\nNachricht: ${document.getElementById('message').value}`;
-        window.location.href = `mailto:DEINE_EMAIL@ADRESSE.DE?subject=Buchungsanfrage Haferkamp&body=${encodeURIComponent(body)}`;
+        
+        const option = document.getElementById('option').value;
+        const guests = document.getElementById('guests').value;
+        const checkin = document.getElementById('checkin').value;
+        const checkout = document.getElementById('checkout').value;
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
+
+        const subject = `Buchungsanfrage: ${option} von ${name}`;
+        const body = `Hallo,\n\nich interessiere mich für folgende Buchung am Haferkamp 14:\n\n` +
+                     `Option: ${option}\n` +
+                     `Personen: ${guests}\n` +
+                     `Zeitraum: ${checkin} bis ${checkout}\n` +
+                     `Nachricht: ${message}\n\n` +
+                     `Bitte um Rückmeldung.\n` +
+                     `Viele Grüße, ${name}`;
+
+        // Hier deine E-Mail Adresse eintragen
+        const myEmail = "DEINE_EMAIL@ADRESSE.DE";
+        
+        window.location.href = `mailto:${myEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
 </script>
 
